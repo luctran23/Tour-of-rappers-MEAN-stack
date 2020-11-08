@@ -8,3 +8,12 @@ module.exports.index = async (req, res) => {
         res.json( { message: err });
     }
 };
+module.exports.specific = async (req, res) => {
+    try {
+        const rapper = await Rapper.findById(req.params.id);
+        res.json(rapper);
+    } catch (error) {
+        res.json({message: error });
+    }
+    
+};
